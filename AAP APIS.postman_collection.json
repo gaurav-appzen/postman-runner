@@ -1,0 +1,2562 @@
+{
+	"info": {
+		"_postman_id": "09bb5365-3447-4079-be13-c65ec0c789fa",
+		"name": "AAP APIS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Chart of Accounts 1",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var COAID = _.random(100000, 999999);",
+							"",
+							"postman.setEnvironmentVariable(\"COAID1\", COAID);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"COAUUID1\", jsonData.uuid);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"disabled": true
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"appzen_segment_type\": \"OTHER_SEGMENT\",\n  \"segment_type\": \"Legal Entity {{COAID1}}\",\n  \"segment_name\": \"Legal Entity {{COAID1}}\",\n  \"segment_code\": \"{{COAID1}}\",\n  \"custom_json\": {\n    \"custom_key1\": \"any-value1\",\n    \"custom_key2\": \"any-value2\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{BaseURI}}/chart-of-accounts",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"chart-of-accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Chart Of Accounts 1 by UUID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURI}}/chart-of-accounts/{{COAUUID1}}",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"chart-of-accounts",
+						"{{COAUUID1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Chart of Accounts 2",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var COAID = _.random(100000, 999999);",
+							"",
+							"postman.setEnvironmentVariable(\"COAID2\", COAID);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"COAUUID2\", jsonData.uuid);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"appzen_segment_type\": \"OTHER_SEGMENT\",\n  \"segment_type\": \"Legal Entity {{COAID2}}\",\n  \"segment_name\": \"Legal Entity {{COAID2}}\",\n  \"segment_code\": \"{{COAID2}}\",\n  \"parent_segment_type\": \"OTHER_SEGMENT {{COAID1}}\",\n  \"parent_segment_name\": \"OTHER_SEGMENT {{COAID1}}\",\n  \"parent_segment_code\": \"{{COAID1}}\",\n\n  \"custom_json\": {\n    \"custom_key1\": \"any-value1\",\n    \"custom_key2\": \"any-value2\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{BaseURI}}/chart-of-accounts",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"chart-of-accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Chart Of Accounts 2 by UUID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURI}}/chart-of-accounts/{{COAUUID2}}",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"chart-of-accounts",
+						"{{COAUUID2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Chart of Accounts 3",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var COAID = _.random(100000, 999999);",
+							"",
+							"postman.setEnvironmentVariable(\"COAID3\", COAID);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"COAUUID3\", jsonData.uuid);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"appzen_segment_type\": \"OTHER_SEGMENT\",\n  \"segment_type\": \"Legal Entity {{COAID3}}\",\n  \"segment_name\": \"Legal Entity {{COAID3}}\",\n  \"segment_code\": \"{{COAID3}}\",\n  \"parent_segment_type\": \"OTHER_SEGMENT {{COAID1}}\",\n  \"parent_segment_name\": \"OTHER_SEGMENT {{COAID1}}\",\n  \"parent_segment_code\": \"{{COAID1}}\",\n  \"custom_json\": {\n    \"custom_key1\": \"any-value1\",\n    \"custom_key2\": \"any-value2\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{BaseURI}}/chart-of-accounts",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"chart-of-accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Chart Of Accounts 3 by UUID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURI}}/chart-of-accounts/{{COAUUID3}}",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"chart-of-accounts",
+						"{{COAUUID3}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Chart of Accounts - Legal Entity",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var COAID = _.random(100000, 999999);",
+							"",
+							"postman.setEnvironmentVariable(\"COAID_LEGAL_ENTITY\", COAID);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"COAUUID_LEGAL_ENTITY\", jsonData.uuid);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"disabled": true
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"appzen_segment_type\": \"LEGAL_ENTITY_SEGMENT\",\n  \"segment_type\": \"Legal Entity {{COAID_LEGAL_ENTITY}}\",\n  \"segment_name\": \"Legal Entity {{COAID_LEGAL_ENTITY}}\",\n  \"segment_code\": \"{{COAID_LEGAL_ENTITY}}\",\n  \"custom_json\": {\n    \"custom_key1\": \"legal-entity-value1\",\n    \"custom_key2\": \"legal-entity-value2\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{BaseURI}}/chart-of-accounts",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"chart-of-accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Chart of Accounts - Company",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var COAID = _.random(100000, 999999);",
+							"",
+							"postman.setEnvironmentVariable(\"COAID_COMPANY\", COAID);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"COAUUID_COMPANY\", jsonData.uuid);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"disabled": true
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"appzen_segment_type\": \"COMPANY_SEGMENT\",\n  \"segment_type\": \"Company {{COAID_COMPANY}}\",\n  \"segment_name\": \"Company {{COAID_COMPANY}}\",\n  \"segment_code\": \"{{COAID_COMPANY}}\",\n  \"custom_json\": {\n    \"custom_key1\": \"company-value1\",\n    \"custom_key2\": \"company-value2\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{BaseURI}}/chart-of-accounts",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"chart-of-accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Chart of Accounts - Account",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var COAID = _.random(100000, 999999);",
+							"",
+							"postman.setEnvironmentVariable(\"COAID_ACCOUNT\", COAID);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"COAUUID_ACCOUNT\", jsonData.uuid);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"disabled": true
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"appzen_segment_type\": \"ACCOUNT_SEGMENT\",\n  \"segment_type\": \"Account {{COAID_ACCOUNT}}\",\n  \"segment_name\": \"Account {{COAID_ACCOUNT}}\",\n  \"segment_code\": \"{{COAID_ACCOUNT}}\",\n  \"custom_json\": {\n    \"custom_key1\": \"account-value1\",\n    \"custom_key2\": \"account-value2\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{BaseURI}}/chart-of-accounts",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"chart-of-accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Chart of Accounts - Department",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var COAID = _.random(100000, 999999);",
+							"",
+							"postman.setEnvironmentVariable(\"COAID_DEPARTMENT\", COAID);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"COAUUID_DEPARTMENT\", jsonData.uuid);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"disabled": true
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"appzen_segment_type\": \"DEPARTMENT_SEGMENT\",\n  \"segment_type\": \"Department {{COAID_DEPARTMENT}}\",\n  \"segment_name\": \"Department {{COAID_DEPARTMENT}}\",\n  \"segment_code\": \"{{COAID_DEPARTMENT}}\",\n  \"custom_json\": {\n    \"custom_key1\": \"department-value1\",\n    \"custom_key2\": \"department-value2\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{BaseURI}}/chart-of-accounts",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"chart-of-accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Chart of Accounts - Cost Center",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var COAID = _.random(100000, 999999);",
+							"",
+							"postman.setEnvironmentVariable(\"COAID_COST_CENTER\", COAID);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"COAUUID_COST_CENTER\", jsonData.uuid);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"disabled": true
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"appzen_segment_type\": \"COST_CENTER_SEGMENT\",\n  \"segment_type\": \"Cost Center {{COAID_COST_CENTER}}\",\n  \"segment_name\": \"Cost Center {{COAID_COST_CENTER}}\",\n  \"segment_code\": \"{{COAID_COST_CENTER}}\",\n  \"custom_json\": {\n    \"custom_key1\": \"cost-center-value1\",\n    \"custom_key2\": \"cost-center-value2\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{BaseURI}}/chart-of-accounts",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"chart-of-accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Chart of Accounts - Vendor",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var COAID = _.random(100000, 999999);",
+							"",
+							"postman.setEnvironmentVariable(\"COAID_VENDOR\", COAID);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"COAUUID_VENDOR\", jsonData.uuid);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"disabled": true
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"appzen_segment_type\": \"VENDOR_SEGMENT\",\n  \"segment_type\": \"Vendor {{COAID_VENDOR}}\",\n  \"segment_name\": \"Vendor {{COAID_VENDOR}}\",\n  \"segment_code\": \"{{COAID_VENDOR}}\",\n  \"custom_json\": {\n    \"custom_key1\": \"vendor-value1\",\n    \"custom_key2\": \"vendor-value2\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{BaseURI}}/chart-of-accounts",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"chart-of-accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Chart of Accounts - Location",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var COAID = _.random(100000, 999999);",
+							"",
+							"postman.setEnvironmentVariable(\"COAID_LOCATION\", COAID);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"COAUUID_LOCATION\", jsonData.uuid);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"disabled": true
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"appzen_segment_type\": \"LOCATION_SEGMENT\",\n  \"segment_type\": \"Location {{COAID_LOCATION}}\",\n  \"segment_name\": \"Location {{COAID_LOCATION}}\",\n  \"segment_code\": \"{{COAID_LOCATION}}\",\n  \"custom_json\": {\n    \"custom_key1\": \"location-value1\",\n    \"custom_key2\": \"location-value2\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{BaseURI}}/chart-of-accounts",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"chart-of-accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Chart of Accounts - User",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var COAID = _.random(100000, 999999);",
+							"",
+							"postman.setEnvironmentVariable(\"COAID_USER\", COAID);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"COAUUID_USER\", jsonData.uuid);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"disabled": true
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"appzen_segment_type\": \"USER_SEGMENT\",\n  \"segment_type\": \"User {{COAID_USER}}\",\n  \"segment_name\": \"User {{COAID_USER}}\",\n  \"segment_code\": \"{{COAID_USER}}\",\n  \"custom_json\": {\n    \"custom_key1\": \"user-value1\",\n    \"custom_key2\": \"user-value2\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{BaseURI}}/chart-of-accounts",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"chart-of-accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Chart of Accounts - Customer",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var COAID = _.random(100000, 999999);",
+							"",
+							"postman.setEnvironmentVariable(\"COAID_CUSTOMER\", COAID);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"COAUUID_CUSTOMER\", jsonData.uuid);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"disabled": true
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"appzen_segment_type\": \"CUSTOMER_SEGMENT\",\n  \"segment_type\": \"Customer {{COAID_CUSTOMER}}\",\n  \"segment_name\": \"Customer {{COAID_CUSTOMER}}\",\n  \"segment_code\": \"{{COAID_CUSTOMER}}\",\n  \"custom_json\": {\n    \"custom_key1\": \"customer-value1\",\n    \"custom_key2\": \"customer-value2\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{BaseURI}}/chart-of-accounts",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"chart-of-accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Chart of Accounts - Project",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var COAID = _.random(100000, 999999);",
+							"",
+							"postman.setEnvironmentVariable(\"COAID_PROJECT\", COAID);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"COAUUID_PROJECT\", jsonData.uuid);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"disabled": true
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"appzen_segment_type\": \"PROJECT_SEGMENT\",\n  \"segment_type\": \"Project {{COAID_PROJECT}}\",\n  \"segment_name\": \"Project {{COAID_PROJECT}}\",\n  \"segment_code\": \"{{COAID_PROJECT}}\",\n  \"custom_json\": {\n    \"custom_key1\": \"project-value1\",\n    \"custom_key2\": \"project-value2\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{BaseURI}}/chart-of-accounts",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"chart-of-accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Chart of Accounts - Spend Category",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var COAID = _.random(100000, 999999);",
+							"",
+							"postman.setEnvironmentVariable(\"COAID_SPEND_CATEGORY\", COAID);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"COAUUID_SPEND_CATEGORY\", jsonData.uuid);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"disabled": true
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"appzen_segment_type\": \"SPEND_CATEGORY_SEGMENT\",\n  \"segment_type\": \"Spend Category {{COAID_SPEND_CATEGORY}}\",\n  \"segment_name\": \"Spend Category {{COAID_SPEND_CATEGORY}}\",\n  \"segment_code\": \"{{COAID_SPEND_CATEGORY}}\",\n  \"custom_json\": {\n    \"custom_key1\": \"spend-category-value1\",\n    \"custom_key2\": \"spend-category-value2\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{BaseURI}}/chart-of-accounts",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"chart-of-accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Chart of Accounts - Region",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var COAID = _.random(100000, 999999);",
+							"",
+							"postman.setEnvironmentVariable(\"COAID_REGION\", COAID);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"COAUUID_REGION\", jsonData.uuid);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"disabled": true
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"appzen_segment_type\": \"REGION_SEGMENT\",\n  \"segment_type\": \"Region {{COAID_REGION}}\",\n  \"segment_name\": \"Region {{COAID_REGION}}\",\n  \"segment_code\": \"{{COAID_REGION}}\",\n  \"custom_json\": {\n    \"custom_key1\": \"region-value1\",\n    \"custom_key2\": \"region-value2\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{BaseURI}}/chart-of-accounts",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"chart-of-accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Chart of Accounts - Intercompany",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var COAID = _.random(100000, 999999);",
+							"",
+							"postman.setEnvironmentVariable(\"COAID_INTERCOMPANY\", COAID);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"COAUUID_INTERCOMPANY\", jsonData.uuid);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"disabled": true
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"appzen_segment_type\": \"INTERCOMPANY_SEGMENT\",\n  \"segment_type\": \"Intercompany {{COAID_INTERCOMPANY}}\",\n  \"segment_name\": \"Intercompany {{COAID_INTERCOMPANY}}\",\n  \"segment_code\": \"{{COAID_INTERCOMPANY}}\",\n  \"custom_json\": {\n    \"custom_key1\": \"intercompany-value1\",\n    \"custom_key2\": \"intercompany-value2\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{BaseURI}}/chart-of-accounts",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"chart-of-accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chart of Accounts Search",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"from-last-appzen-update-time\": \"2023-05-05T11:01:00Z\",\n  \"to-last-appzen-update-time\": \"2020-05-10T11:01:00Z\",\n  \"limit\": 50\n}"
+				},
+				"url": {
+					"raw": "{{BaseURI}}//chart-of-accounts/search",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"",
+						"chart-of-accounts",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Payment Terms",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var PAYMENTTERMID = _.random(100000, 999999);",
+							"",
+							"postman.setEnvironmentVariable(\"PAYMENTTERMID\", PAYMENTTERMID);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"PAYMENTTERMUUID\", jsonData.uuid);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"PaymentTerm {{PAYMENTTERMID}}\",\n     \"id\": \"{{PAYMENTTERMID}}\",\n    \"active\": true,\n    \"code\": \"NET\",\n    \"date\": \"2022-08-23T11:01:00Z\",\n    \"discounts\": [\n        {\n            \"discount_days\": 5,\n            \"discount_percent\": 1,\n            \"discount_amount\": 0\n        }\n    ],\n    \"num_days\": 30,\n    \"num_grace_days\": \"\",\n    \"custom_json\": {}\n}"
+				},
+				"url": {
+					"raw": "{{BaseURI}}/payment-term",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"payment-term"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Payment Term",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURI}}/payment-term/{{PAYMENTTERMUUID}}",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"payment-term",
+						"{{PAYMENTTERMUUID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get payment term ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURI}}/payment-term/payment-term-id/{{PAYMENTTERMID}}",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"payment-term",
+						"payment-term-id",
+						"{{PAYMENTTERMID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Payment term",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"from-last-appzen-update-time\": \"2023-05-05T11:01:00Z\",\n  \"to-last-appzen-update-time\": \"2023-05-10T11:01:00Z\",\n  \"limit\": 50\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURI}}/payment-term/search",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"payment-term",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Entity",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var ENTITYID = _.random(100000, 999999);",
+							"",
+							"postman.setEnvironmentVariable(\"ENTITYID\", ENTITYID);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"ENTITYUUID\", jsonData.uuid);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"entity_id\": \"{{ENTITYID}}\",\n    \"parent_entity_id\": \"1000\",\n    \"entity_name\": \"{{ENTITYID}} BU\",\n    \"entity_alias_names\": [],\n    \"entity_type\": \"internal\",\n    \"appzen_entity_type\": \"OTHER_ENTITY\",\n    \"currency\": \"USD\",\n    \"addresses\": [\n        {\n            \"addressType\": \"NONE_ADDRESS_TYPE\",\n            \"countryIso3\": \"NONE_COUNTRY_ISO3\"\n        },\n        {\n            \"addressType\": \"NONE_ADDRESS_TYPE\",\n            \"countryIso3\": \"NONE_COUNTRY_ISO3\"\n        }\n    ],\n    \"coa_structure\": [\n        \"Legal Entity {{COAID1}}\",\n        \"Legal Entity {{COAID2}}\",\n        \"Legal Entity {{COAID3}}\"\n    ],\n    \"appzen_coa_structure\": [\n        \"OTHER_SEGMENT\",\n        \"OTHER_SEGMENT\",\n        \"OTHER_SEGMENT\"\n    ],\n    \"custom_json\": {\n        \"ap_email_inbox\": \"test@test.com\",\n        \"default_operating_unit\": \"unit1\",\n        \"default_operating_unit_id\": \"10\"\n    },\n    \"is_active\": false,\n    \"valid_start_date\": \"1970-01-01T00:00:00Z\",\n    \"valid_end_date\": \"1970-01-01T00:00:00Z\",\n    \"created_date\": \"1970-01-01T00:00:00Z\",\n    \"updated_date\": \"1970-01-01T00:00:00Z\",\n    \"payment_term\": {\n        \"source\": \"\",\n        \"code\": \"NONE_PAYMENT_TERM_CODE\",\n        \"num_days\": 0,\n        \"date\": \"1970-01-01T00:00:00Z\",\n        \"custom_json\": {}\n    },\n    \"payment_term_id\": \"{{PAYMENTTERMID}}\"\n}"
+				},
+				"url": {
+					"raw": "{{BaseURI}}/entity",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"entity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Entity by UUID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURI}}/entity/{{ENTITYUUID}}",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"entity",
+						"{{ENTITYUUID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Entity ID",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var ENTITYID = _.random(100000, 999999);",
+							"",
+							"postman.setEnvironmentVariable(\"ENTITYID\", ENTITYID);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"ENTITYUUID\", jsonData.uuid);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"from-last-appzen-update-time\": \"2023-05-05T11:01:00Z\",\n  \"to-last-appzen-update-time\": \"2023-05-10T11:01:00Z\",\n  \"limit\": 50\n}"
+				},
+				"url": {
+					"raw": "{{BaseURI}}/entity/search",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"entity",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Supplier",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"SupplierUUID\", jsonData.uuid);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var SupplierID = _.random(100000, 999999);",
+							"",
+							"postman.setEnvironmentVariable(\"SupplierID\", SupplierID);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"supplier_core\": {\n    \"external_supplier_id\": \"{{SupplierID}}\",\n    \"supplier_name\": \"{{SupplierID}}\",\n    \"supplier_number\": \"{{SupplierID}}\",\n    \"web_site\": \"abcsuppliers.com\",\n    \"on_file_1099\": \"1234567\",\n    \"vat_registration_number\": \"D08J66\",\n    \"fed_tax_id\": \"1234567\",\n    \"is_active\": true,\n    \"deactive_date\": \"2034-11-01T11:01:00Z\",\n    \"deactived_by\": \"JOHN.DOE3@ABC.COM\",\n    \"note\": \"Category A Supplier\"\n  },\n  \"addresses\": [\n    {\n      \"address_type\": \"OFFICE1\",\n      \"address\": {\n        \"address_line1\": \"Street 1234\",\n        \"address_line2\": \"Lane 57\",\n        \"address_line3\": \"F block\",\n        \"area_code\": \"909\",\n        \"city\": \"Chicago\",\n        \"company\": \"Comp1 test\",\n        \"contact\": \"Supplier Upload\",\n        \"country\": \"US\",\n        \"country_iso3\": \"US\",\n        \"email\": \"pltest@supplier.com\",\n        \"phone\": \"\",\n        \"province\": \"\",\n        \"state\": \"\",\n        \"zip\": \"60693\"\n      } ,\n      \"site_id\": \"913838\",\n        \"site_name\": \"California HQ\",\n        \"custom_json\": {\n          \"key1\": \"value1\"\n        },\n        \"is_active\": true,\n        \"valid_start_date\": \"2023-05-01T11:01:00Z\",\n        \"valid_end_date\": \"2030-11-01T11:01:00Z\"\n      \n    }\n  ],\n  \"contacts\": [\n    {\n      \"external_contact_id\": \"65321876\",\n      \"first_name\": \"PL Test\",\n      \"last_name\": \"L Test\",\n      \"email\": \"pltest2@supplier.com\",\n      \"phone_number\": \"123457654\"\n    }\n  ],\n  \"payment_term_id\": \"{{PAYMENTTERMID}}\",\n  \"bank_information\": {\n       \"bank_acct_last4\": \"8674\",\n      \"routing_number_last4\": \"6521\",\n      \"bank_account_name\": \"ABC Bank\",\n      \"bank_account_type\": \"Checking\"\n  },\n  \"payment_types\": [\n      \"CREDIT\",\n      \"CASH\",\n      \"WIRE\"\n    ],\n  \"custom_json\": {\n    \"element_1\": \"element_1_description\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{BaseURI}}/supplier",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"supplier"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Supplier",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"type": "text",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"type": "text",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"type": "text",
+						"value": "{{customer-key}}"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURI}}/supplier/{{SupplierUUID}}",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"supplier",
+						"{{SupplierUUID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Supplier using external supplier id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"type": "text",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"type": "text",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"type": "text",
+						"value": "{{customer-key}}"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURI}}/supplier/external-supplier-id/{{SupplierID}}",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"supplier",
+						"external-supplier-id",
+						"{{SupplierID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Supplier",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"SupplierUUID\", jsonData.uuid);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var SupplierID = _.random(100000, 999999);",
+							"",
+							"postman.setEnvironmentVariable(\"SupplierID\", SupplierID);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"supplier_core\": {\n    \"external_supplier_id\": \"{{SupplierID}}\",\n    \"supplier_name\": \"{{SupplierID}}\",\n    \"supplier_number\": \"Num_{{SupplierID}}\",\n    \"web_site\": \"abcsuppliers.com\",\n    \"on_file_1099\": \"1234567\",\n    \"vat_registration_number\": \"D08J66\",\n    \"fed_tax_id\": \"1234567\",\n    \"is_active\": true,\n    \"deactive_date\": \"2034-11-01T11:01:00Z\",\n    \"deactived_by\": \"JOHN.DOE3@ABC.COM\",\n    \"note\": \"Category A Supplier\"\n  },\n  \"addresses\": [\n    {\n      \"address_type\": \"OFFICE1\",\n      \"address\": {\n        \"address_line1\": \"Street 1234\",\n        \"address_line2\": \"Lane 57\",\n        \"address_line3\": \"F block\",\n        \"area_code\": \"909\",\n        \"city\": \"Chicago\",\n        \"company\": \"Comp1 test\",\n        \"contact\": \"Supplier Upload\",\n        \"country\": \"US\",\n        \"country_iso3\": \"US\",\n        \"email\": \"pltest@supplier.com\",\n        \"phone\": \"\",\n        \"province\": \"\",\n        \"state\": \"\",\n        \"zip\": \"60693\"\n      } ,\n      \"site_id\": \"913838\",\n        \"site_name\": \"California HQ\",\n        \"custom_json\": {\n          \"key1\": \"value1\"\n        },\n        \"is_active\": true,\n        \"valid_start_date\": \"2023-05-01T11:01:00Z\",\n        \"valid_end_date\": \"2030-11-01T11:01:00Z\"\n      \n    }\n  ],\n  \"contacts\": [\n    {\n      \"external_contact_id\": \"65321876\",\n      \"first_name\": \"PL Test\",\n      \"last_name\": \"L Test\",\n      \"email\": \"pltest2@supplier.com\",\n      \"phone_number\": \"123457654\"\n    }\n  ],\n  \"payment_term_id\": \"{{PAYMENTTERMID}}\",\n  \"bank_information\": {\n       \"bank_acct_last4\": \"8674\",\n      \"routing_number_last4\": \"6521\",\n      \"bank_account_name\": \"ABC Bank\",\n      \"bank_account_type\": \"Checking\"\n  },\n  \"payment_types\": [\n      \"CREDIT\",\n      \"CASH\",\n      \"WIRE\"\n    ],\n  \"custom_json\": {\n    \"element_1\": \"element_1_description\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{BaseURI}}/supplier",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"supplier"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Purchase Order",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var PurchaseOrderID = _.random(999,100000);",
+							"",
+							"postman.setEnvironmentVariable(\"PurchaseOrderID\", PurchaseOrderID);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"PurchaseOrderUUID\", jsonData[\"uuid\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"purchase_order_number\": \"{{PurchaseOrderID}}\",\n  \"entity_id\": \"{{ENTITYID}}\",\n  \"entity_name\": \"{{ENTITYID}} BU\",\n  \"supplier_id\": \"{{SupplierID}}\",\n  \"payment_term_id\": \"{{PAYMENTTERMID}}\",\n  \"comments\": \"\",\n  \"exchange_rate\": {\n    \"conversion_rate\": 0.019889640323601,\n    \"from_currency_code\": \"PHP\",\n    \"to_currency_code\": \"USD\"\n  },\n  \"start_date\": \"\",\n  \"end_date\": \"\",\n  \"total_amount\": {\n    \"amount\": 10000,\n    \"currency\": \"PHP\"\n  },\n  \"amount_limit\": {\n    \"amount\": 0,\n    \"currency\": \"PHP\"\n  },\n  \"min_release_amount\": {\n    \"amount\": 0,\n    \"currency\": \"PHP\"\n  },\n  \"email_address\": \"\",\n  \"purchase_order_status\": \"PO_ISSUED\",\n  \"appzen_purchase_order_status\": \"PO_ISSUED\",\n  \"ship_to_location\": \"PH_MAKATI_PHILAM\",\n  \"ship_to_location_id\": \"300003158068848\",\n  \"requester\": \"Tuttle, Cathy\",\n  \"custom_json\": {\n    \"po_header_id\": \"300003329643946\",\n    \"supplier_siteid\": \"300003171036116\",\n    \"prc_buid\": \"300000504903796\",\n    \"prc_bu\": \"APAC OBU\",\n    \"req_buid\": \"300003146488152\",\n    \"req_bu\": \"1691 OBU\",\n    \"bu_id\": \"300003146488152\",\n    \"bu_name\": \"1691 OBU\"\n  },\n  \"purchase_order_lines\": [\n    {\n      \"po_line_id\": \"300003329643947\",\n      \"line_number\": 1,\n      \"gl_code\": \"131742.447689.634898\",\n      \"line_item_code\": \"\",\n      \"line_description\": \"Additional storage racks \",\n      \"quantity\": null,\n      \"unit_price\": {\n        \"amount\": 100,\n        \"currency\": \"PHP\"\n      },\n      \"amount\": {\n        \"amount\": 10000,\n        \"currency\": \"PHP\"\n      },\n      \"contractor_name\": \" \",\n      \"contractor_start_date\": \"\",\n      \"closed_flag\": true,\n      \"closed_by\": \"Redondo, Marlon Arris\",\n      \"closed_date\": \"2021-12-03T13:54:53.000+00:00\",\n      \"closed_reason\": \"\",\n      \"cancel_flag\": false,\n      \"cancel_date\": \"\",\n      \"cancel_reason\": \"\",\n      \"taxable_flag\": false,\n      \"tax_code_id\": \"\",\n      \"tax_name\": \"\",\n      \"type_1099\": \"\",\n      \"committed_amount\": {\n        \"amount\": 0,\n        \"currency\": \"PHP\"\n      },\n      \"amount_limit\": {\n        \"currency\": \"PHP\"\n      },\n      \"unit_list_price\": {\n        \"amount\": null,\n        \"currency\": \"PHP\"\n      },\n      \"base_list_price\": {\n        \"amount\": null,\n        \"currency\": \"PHP\"\n      },\n      \"uninvoiced_amount\": {\n        \"amount\": 100,\n        \"currency\": \"PHP\"\n      },\n      \"received_amount\": {\n        \"amount\": 10000.88,\n        \"currency\": \"PHP\"\n      },\n      \"progress_payment_rate\": null,\n      \"item_category\": \"\",\n      \"item_category_id\": \"300000242653116\",\n      \"hazard_class_id\": \"\",\n      \"unit_of_measure\": \"\",\n      \"committed_quantity\": 0,\n      \"ordered_quantity\": 30,\n      \"received_quantity\": 0,\n      \"match_basis\": \"AMOUNT\",\n      \"match_type\": \"THREE_WAY_MATCH\",\n      \"line_type\": \"SERVICE\",\n      \"purchase_order_line_status\": \"PO_ISSUED\",\n      \"appzen_purchase_order_line_status\": \"PO_ISSUED\",\n      \"buyer\": \"Tuttle, Cathy\"\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "{{BaseURI}}/purchase-order",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"purchase-order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Purchase Order by UUID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURI}}/purchase-order/{{PurchaseOrderUUID}}",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"purchase-order",
+						"{{PurchaseOrderUUID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Purchase Order by PO NUMBER",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURI}}/purchase-order/purchase-order-number/{{PurchaseOrderID}}",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"purchase-order",
+						"purchase-order-number",
+						"{{PurchaseOrderID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate Image URL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"DocURL\", jsonData[\"url\"]);",
+							"postman.setEnvironmentVariable(\"DocUUID\", jsonData[\"uuid\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{BaseURI}}/generate-upload-url",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"generate-upload-url"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Load Invoice Image",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "invoice1.pdf"
+					}
+				},
+				"url": {
+					"raw": "{{DocURL}}",
+					"host": [
+						"{{DocURL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add one Invoice for one AAA customer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"InvoiceUUID\", jsonData[\"uuid\"]);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var InvoiceID = _.random(100000, 999999);",
+							"",
+							"postman.setEnvironmentVariable(\"InvoiceID\", InvoiceID);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"total_amount\": {\n    \"amount\": 88013.00,\n    \"currency\": \"USD\"\n  },\n  \"purchase_order_number\": \"{{PurchaseOrderID}}\",\n  \"payment_due_date\": \"2022-08-22T00:00:00Z\",\n  \"invoice_id\": \"{{InvoiceID}}\",\n  \"invoice_status\": \"Fully Paid\",\n  \"invoice_type\": \"\",\n  \"invoice_date\": \"2022-05-21T00:00:00Z\",\n  \"invoice_description\": \"test {{InvoiceID}}\",\n  \"entity_id\": \"{{ENTITYID}}\",\n  \"supplier_name\": \"Supplier {{SupplierID}}\",\n  \"entity_name\": \"{{ENTITYID}} BU\",\n  \"documents\": [\n    {\n      \"uuid\": \"{{DocUUID}}\"\n    }\n  ],\n  \"invoice_number\": \"{{InvoiceID}}\",\n  \"payment_term\": {\n    \"code\": \"NET\",\n    \"source\": \"EXTERNAL\",\n    \"num_days\": 90\n  },\n  \"supplier_id\": \"{{SupplierID}}\",\n  \"site_id\": \"0000\",\n  \"shipping_address\": {\n    \"address_line1\": \"224 TestQE EON\",\n    \"address_line2\": \"Kharadi\",\n    \"address_line3\": \"\",\n    \"city\": \"Pune\",\n    \"state\": \"MH\",\n    \"zip\": \"411023\",\n    \"country\": \"IN\"\n  },\n  \"billing_address\": {\n    \"address_line1\": \"456 TestQE Address\",\n    \"address_line2\": \"PV House\",\n    \"address_line3\": \"\",\n    \"city\": \"Pune\",\n    \"state\": \"MH\",\n    \"zip\": \"411023\",\n    \"country\": \"IN\"\n  },\n  \"invoice_lines\": [\n    {\n      \"line_number\": 1,\n      \"line_description\": \"Pen\",\n      \"quantity\": 13,\n      \"unit_price\": {\n        \"amount\": 1200.00,\n        \"currency\": \"USD\"\n      },\n      \"total_amount\": {\n        \"amount\": 3600.00,\n        \"currency\": \"USD\"\n      },\n      \"purchase_order_number\": \"{{PurchaseOrderID}}\",\n      \"unit_of_measure\": \"Each\",\n      \"gl_code\": \"{{COAID1}}.{{COAID2}}.{{COAID3}}\",\n      \"segments\": [\n        {\n          \"segment_index\": 1,\n          \"code\": \"Entity{{COAID1}}\",\n          \"name\": \"Entity{{COAID1}}\",\n          \"segment_type\": \"Entity{{COAID1}}\",\n          \"appzen_segment_type\": \"OTHER_SEGMENT\"\n        },\n        {\n          \"segment_index\": 2,\n          \"code\": \"Entity{{COAID2}}\",\n          \"name\": \"Entity{{COAID2}}\",\n          \"segment_type\": \"Entity{{COAID2}}\",\n          \"appzen_segment_type\": \"OTHER_SEGMENT\"\n        },\n        {\n          \"segment_index\": 3,\n          \"code\": \"Entity{{COAID3}}\",\n          \"name\": \"Entity{{COAID3}}\",\n          \"segment_type\": \"Entity{{COAID3}}\",\n          \"appzen_segment_type\": \"OTHER_SEGMENT\"\n        }\n      ]\n    },\n    {\n      \"line_number\": 2,\n      \"line_description\": \"Coffee Machine\",\n      \"quantity\": 2,\n      \"unit_price\": {\n        \"amount\": 198000.00,\n        \"currency\": \"USD\"\n      },\n      \"total_amount\": {\n        \"amount\": 876543.00,\n        \"currency\": \"USD\"\n      },\n      \"purchase_order_number\": \"925944\",\n      \"unit_of_measure\": \"Each\",\n      \"gl_code\": \"{{COAID1}}.{{COAID2}}.{{COAID3}}\",\n      \"segments\": [\n        {\n          \"segment_index\": 1,\n          \"code\": \"Entity{{COAID1}}\",\n          \"name\": \"Entity{{COAID1}}\",\n          \"segment_type\": \"Entity{{COAID1}}\",\n          \"appzen_segment_type\": \"OTHER_SEGMENT\"\n        },\n        {\n          \"segment_index\": 2,\n          \"code\": \"Entity{{COAID2}}\",\n          \"name\": \"Entity{{COAID2}}\",\n          \"segment_type\": \"Entity{{COAID2}}\",\n          \"appzen_segment_type\": \"OTHER_SEGMENT\"\n        },\n        {\n          \"segment_index\": 3,\n          \"code\": \"Entity{{COAID3}}\",\n          \"name\": \"Entity{{COAID3}}\",\n          \"segment_type\": \"Entity{{COAID3}}\",\n          \"appzen_segment_type\": \"OTHER_SEGMENT\"\n        }\n      ]\n    }\n\n  ]\n}"
+				},
+				"url": {
+					"raw": "{{BaseURI}}/invoice",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"invoice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Invoice by UUID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURI}}/nvoice/{{InvoiceUUID}}",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"nvoice",
+						"{{InvoiceUUID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Audit Result Uuid",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURI}}/invoice/{{InvoiceUUID}}/audit-results",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"invoice",
+						"{{InvoiceUUID}}",
+						"audit-results"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Processed Invoice Uuid",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURI}}/invoice/processed-invoice/{{InvoiceUUID}}",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"invoice",
+						"processed-invoice",
+						"{{InvoiceUUID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Search Invoice Uuid",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"from-last-appzen-update-time\" : \"2022-03-28T00:00:00Z\",\n    \"to-last-appzen-update-time\" : \"2022-03-29T05:27:00Z\"\n}"
+				},
+				"url": {
+					"raw": "{{BaseURI}}/invoice/search",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"invoice",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create VAT",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var VATID = _.random(100000, 999999);",
+							"",
+							"postman.setEnvironmentVariable(\"VATID\", VATID);",
+							"",
+							"",
+							"",
+							"var VATRate = _.random(0, 99);",
+							"",
+							"postman.setEnvironmentVariable(\"VATRate\", VATRate);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"VATUUID\", jsonData.uuid);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"vat_id\": \"{{VATID}}\",\n  \"vat_code\" : \"{{VATID}}\",\n  \"vat_rate\" : {{VATRate}},\n  \"is_active\" : true,\n  \"appzen_vat_code\":\"VAT\",\n  \"appzen_vat_rate\":\"50\" \n}\n"
+				},
+				"url": {
+					"raw": "{{BaseURI}}/vat",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"vat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get VAT",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{BaseURI}}/vat/{{VATUUID}}",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"vat",
+						"{{VATUUID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get VAT Code and Rate",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-id",
+						"value": "{{customer-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-key",
+						"value": "{{customer-key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{BaseURI}}/vat/vat-code/{{VATID}}/vat-rate/{{VATRate}}",
+					"host": [
+						"{{BaseURI}}"
+					],
+					"path": [
+						"vat",
+						"vat-code",
+						"{{VATID}}",
+						"vat-rate",
+						"{{VATRate}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "postman-api-runner-proxy",
+  "version": "1.0.0",
+  "description": "Proxy server to handle CORS issues for Postman API Runner",
+  "main": "proxy-server.js",
+  "scripts": {
+    "start": "node api-server.js",
+    "frontend": "npx http-server -p 8000 -c-1",
+    "server": "node api-server.js",
+    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
+    "dev:watch": "concurrently \"nodemon api-server.js\" \"npx http-server -p 8000 -c-1\""
+  },
+  "dependencies": {
+    "concurrently": "^7.6.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "node-fetch": "^2.6.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "keywords": [
+    "proxy",
+    "cors",
+    "postman",
+    "api"
+  ],
+  "author": "",
+  "license": "MIT"
+}

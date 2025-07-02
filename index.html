@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postman Collection Runner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Postman Collection Runner</h1>
+            <p>Select and execute APIs from your Postman collection</p>
+        </header>
+
+        <div class="main-content">
+            <div class="apis-panel">
+                <div class="section">
+                    <h3>📋 Available APIs</h3>
+                    <div class="api-controls">
+                        <button id="selectAllBtn" class="btn-control select-all">✅ Select All</button>
+                        <button id="selectNoneBtn" class="btn-control select-none">❌ Select None</button>
+                    </div>
+                    <div class="api-list" id="apiList">
+                        <div class="loading">Loading APIs...</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="env-panel">
+                <div class="section">
+                    <h3>🔐 Authentication</h3>
+                    <div class="auth-section">
+                        <div class="input-group">
+                            <label for="customerIdInput">Customer ID:</label>
+                            <input type="text" id="customerIdInput" placeholder="Enter customer ID (e.g., 100094)" />
+                        </div>
+                        <button id="getCustomerKeyBtn" class="btn-auth">
+                            🔑 Get Customer Key
+                        </button>
+                        <div id="customerKeyResult" class="auth-result" style="display: none;"></div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>🔧 Environment Variables</h3>
+                    <div class="env-vars" id="envVars">
+                        <div class="loading">Loading variables...</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-panel">
+                <div class="section">
+                    <h3>📝 Selected APIs for Execution</h3>
+                    <div class="selection-info" id="selectionInfo">
+                        <span class="selection-count">0 APIs selected</span>
+                    </div>
+                    <div class="selected-apis" id="selectedApis">
+                        <div class="empty-state">
+                            <p>No APIs selected yet. Select APIs from the left panel to add them to the execution queue.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="execution-controls">
+                    <button id="executeBtn" class="btn-primary" disabled>
+                        ▶️ Execute Selected APIs
+                    </button>
+                    <button id="clearBtn" class="btn-secondary">
+                        🗑️ Clear Selection
+                    </button>
+                </div>
+
+                <div class="section">
+                    <h3>📊 Execution Results</h3>
+                    <div class="results-controls" id="resultsControls" style="display: none;">
+                        <button id="clearAllErrorsBtn" class="btn-error-control">🗑️ Clear All Errors</button>
+                        <button id="clearAllResultsBtn" class="btn-error-control">🧹 Clear All Results</button>
+                    </div>
+                    <div class="results" id="results">
+                        <div class="empty-state">
+                            <p>Results will appear here after execution.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
